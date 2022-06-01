@@ -54,4 +54,40 @@ ch1\test_one.py:2: AssertionError
 FAILED ch1/test_one.py::test_passing - assert (4, 2, 3) == (1, 2, 3)
 ============================== 1 failed in 0.01s ==============================
 ```
-page 35
+
+
+check out interesting traceback in pytest test_card_fail.py
+
+```bash
+============================= test session starts =============================
+platform win32 -- Python 3.7.9, pytest-7.1.2, pluggy-1.0.0
+rootdir: C:\Users\mcs22\Repos\pytest-stack\code, configfile: pytest.ini
+collected 1 item
+
+test_card_fail.py F                                                      [100%]
+
+================================== FAILURES ===================================
+_____________________________ test_equality_fail ______________________________
+
+    def test_equality_fail():
+        c1 = Card("sit there", "brian")
+        c2 = Card("do something", "okken")
+>       assert c1 == c2
+E       AssertionError: assert Card(summary=...odo', id=None) == Card(summary=...odo', id=None)
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing attributes:
+E         ['summary', 'owner']
+E         
+E         Drill down into differing attribute summary:
+E           summary: 'sit there' != 'do something'...
+E         
+E         ...Full output truncated (8 lines hidden), use '-vv' to show
+
+test_card_fail.py:7: AssertionError
+=========================== short test summary info ===========================
+FAILED test_card_fail.py::test_equality_fail - AssertionError: assert Card(su...
+============================== 1 failed in 0.05s ==============================
+```
+
+Page 50
